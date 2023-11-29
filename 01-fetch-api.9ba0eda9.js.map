@@ -1,1 +1,0 @@
-{"mappings":"AAWAA,QAAQC,IAAI","sources":["src/js/01-fetch-api.js"],"sourcesContent":["import '../css/common.css';\n\n// fetch()\n\n// https://pokeapi.co/\n\nconst a = \"0\";\nconst b = a ?? \"b\";\nconst c = a || \"c\";\n\n\nconsole.log('hello world')\n\n"],"names":["console","log"],"version":3,"file":"01-fetch-api.9ba0eda9.js.map"}
