@@ -1,5 +1,6 @@
 import '../css/common.css';
-import pokemonCardTpl from '../templates/pokemon-card.hbs';
+// import Handlebars from "handlebars";
+// import pokemonCardTpl from '../templates/pokemon-card.hbs';
 
 // const a = "0";
 // const b = a ?? "b";
@@ -53,9 +54,9 @@ fetch('https://pokeapi.co/api/v2/ability/8')
 })
 .then(pokemon => {
     console.log(pokemon);
-    const markup = pokemonCardTpl(pokemon);
-    console.log(markup);
-refs.cardContainer.innerHTML = markup;
+//     const markup = pokemonCardTpl(pokemon);
+//     console.log(markup);
+// refs.cardContainer.innerHTML = markup;
 
 })
 .catch(error => {
