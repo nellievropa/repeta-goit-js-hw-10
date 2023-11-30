@@ -14,9 +14,9 @@ import '../css/common.css';
 
 // щоб достукатись до обёэкта додаэмо then і виводимо дані 
 
-fetch('https://pokeapi.co/api/v2/ability/5').then(data => {
-    console.log(data)
-});
+// fetch('https://pokeapi.co/api/v2/ability/5').then(data => {
+//     console.log(data)
+// });
 
 // отримуємо responce i body:ReadableStream
 // щоб розпакувати ReadableStream використовуємо один з методів 
@@ -25,20 +25,20 @@ fetch('https://pokeapi.co/api/v2/ability/5').then(data => {
 // text - поверне тектовий файл з даними(таблиці)
 
 // тому наш запит буде виглядати так : піди принеси
-fetch('https://pokeapi.co/api/v2/pokemon/5')
-.then(response => {
-    // console.log(response.json());
-    // повернемо результат відповіді, щоб можно було з ним далі працювати і додати до нього наступний then
-    // розпарси відповідь
-    return response.json();
-})
-.then(pokemon => {
-    console.log(pokemon);
-    // якщо щось не так зроби catch
-})
-.catch(error => {
-    console.log(error);
-});
+// fetch('https://pokeapi.co/api/v2/pokemon/5')
+// .then(response => {
+//     // console.log(response.json());
+//     // повернемо результат відповіді, щоб можно було з ним далі працювати і додати до нього наступний then
+//     // розпарси відповідь
+//     return response.json();
+// })
+// .then(pokemon => {
+//     console.log(pokemon);
+//     // якщо щось не так зроби catch
+// })
+// .catch(error => {
+//     console.log(error);
+// });
 
 // Content-Type : text/css, 
 
