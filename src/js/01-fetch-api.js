@@ -47,22 +47,41 @@ const refs ={
 }
 
 // щоб отримати колекцію покемонів 
-fetch('https://pokeapi.co/api/v2/ability/8')
-.then(response => {
+// fetch('https://pokeapi.co/api/v2/ability/8')
+// .then(response => {
 
-    return response.json();
-})
-.then(pokemon => {
-    console.log(pokemon);
+//     return response.json();
+// })
+// .then(pokemon => {
+//     console.log(pokemon);
 //     const markup = pokemonCardTpl(pokemon);
 //     console.log(markup);
 // refs.cardContainer.innerHTML = markup;
 
-})
-.catch(error => {
-    console.log(error);
-});
+// })
+// .catch(error => {
+//     console.log(error);
+// });
 
 // перепишемо код зверху так, щоб він міг працювати з з любими даними і незалежно
 
+// 3 тоді наш код буде виглядати так 
+fetchPokemonById()
+.then(renderPockemonCard)
+.catch(error => console.log(error));
+
+// 2 винесемо в функцію отримання Промісу і його розпакування (ренедерення) за дропомогою JSON
+function fetchPokemonById(pokemonId) {
+   return fetch(`https://pokeapi.co/api/v2/ability/${pokemonId}`).then(response => {
+    return response.json();
+   },
+   );
+}
+
+
 // 1 винесемо в окрему функцію малювання покемона 
+function renderPockemonCard(pokemon) {
+    const markup = pokemonCardTpl(pokemon);
+    // console.log(markup);
+refs.cardContainer.innerHTML = markup;
+}
