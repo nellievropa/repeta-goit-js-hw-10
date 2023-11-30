@@ -1,5 +1,5 @@
 import '../css/common.css';
-// import pokemonCardTpl from '../templates/pokemon-card.hbs';
+import pokemonCardTpl from '../templates/pokemon-card.hbs';
 
 // const a = "0";
 // const b = a ?? "b";
@@ -41,19 +41,27 @@ import '../css/common.css';
 // });
 
 // Content-Type : text/css, 
+const refs ={
+    cardContainer: document.querySelector('.js-card-container')
+}
 
 // щоб отримати колекцію покемонів 
-fetch('https://pokeapi.co/api/v2/pokemon/8')
+fetch('https://pokeapi.co/api/v2/ability/8')
 .then(response => {
 
     return response.json();
 })
 .then(pokemon => {
     console.log(pokemon);
-    // const markup = pokemonCardTpl(pokemon);
-    // console.log(markup);
+    const markup = pokemonCardTpl(pokemon);
+    console.log(markup);
+refs.cardContainer.innerHTML = markup;
 
 })
 .catch(error => {
     console.log(error);
 });
+
+// перепишемо код зверху так, щоб він міг працювати з з любими даними і незалежно
+
+// 1 винесемо в окрему функцію малювання покемона 
