@@ -1,6 +1,7 @@
 // import articlesTpl from '../templates/articles.hbs'
 import '../css/common.css';
 import NewsApiService from './news-components';
+import LoadMoreBtn from './components/load-more-btn';
 
 
 
@@ -11,6 +12,9 @@ const refs = {
 };
 // створюємо екземпляр классу NewsApiService
 const newsApiService = new NewsApiService();
+
+// для кнопки
+const loadMoreBtn = new LoadMoreBtn('[data-action="load more"]');
 
 const articlesList = document.querySelector(".articles");
 console.log(newsApiService);
