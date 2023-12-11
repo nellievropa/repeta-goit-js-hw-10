@@ -1,3 +1,4 @@
+// import articlesTpl from '../templates/articles.hbs'
 import '../css/common.css';
 import NewsApiService from './news-components';
 
@@ -11,6 +12,9 @@ const refs = {
 // створюємо екземпляр классу NewsApiService
 const newsApiService = new NewsApiService();
 
+const articlesList = document.querySelector(".articles");
+console.log(newsApiService);
+
 refs.searchForm.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
 // щоб прибрати цю глобальну змінну ми в класі NewsApiService створимо її заміну this.searchQuery = ''; і там же будемо її запам'ятовувати
@@ -20,11 +24,24 @@ refs.loadMoreBtn.addEventListener('click', onLoadMore);
 function onSearch(e) {
     // щоб не перезавантажувалась сторінка робимоа preventDefault
     e.preventDefault();
+
+// очищуємо сторінку перед новим запитом
+// clearArticlesContainer();
+
 // отримуєм доступ до форми, щоб читати запити
 // тут достукуємось також до цієї змінної
 //  searchQuery = e.currentTarget.elements.query.value
-newsApiService.query = e.currentTarget.elements.query.value
+newsApiService.query = e.currentTarget.elements.query.value;
 
+// без GET i SET верхній запис буде виглядати так 
+// newsApiService.searchQuery = e.currentTarget.elements.query.value; тоді треба замінити на searchQuery всюди
+
+// напишемо попередження про пусту строку
+if(newsApiService.query === '') {
+    return alert(`Please, make a request!`)
+}
+// під час сабміту сторінка буде онвлюватись до 1-ї, коли ми пишемо новий запит
+newsApiService.resetPage();
 // При сабміті форми треба викликати сторінку на  newsapi.org
     // const options = {
     //     headers: {
@@ -41,8 +58,11 @@ newsApiService.query = e.currentTarget.elements.query.value
     // всю цю логіку виносимо в окремий спеціально створений файл news-components
     // і після того, як ми створили екземпляр классу NewsApiService і викликали його вище, звертаємось до нього
     // а  searchQuery  передаємо йому як аргумент
-
-    newsApiService.fetchArticles();
+// тут додаємо articles
+    newsApiService.fetchArticles().then(articles => {
+        clearArticlesContainer();
+        appendArticlesMarkup(articles)
+    });
 }
 
 // ми хочемо підгружати наступні сторінки при натисканні кнопки "Показати ще"
@@ -62,9 +82,32 @@ function onLoadMore() {
     //     .then(r => r.json)
     //     .then(console.log());
     // в цій функції все робимо аналогічно
-    newsApiService.fetchArticles();
+    newsApiService.fetchArticles().then(appendArticlesMarkup);
 }
 
+// що створити розмітку зробимо функцію
+
+function appendArticlesMarkup(articles) {
+    // refs.articlesContainer.insertAdjacentHTML('beforeend', articlesTpl(articles));
+    const markup = articles
+    .map(({ urlToImage, title, author, description }) => {
+      return `<li>
+      <img src="${urlToImage}" alt="" width="480">
+      <h2>${title}</h2>
+      <p>Posted by: ${author}</p>
+      <p>${description}</p>
+
+       </li>`;
+    })
+    .join("");
+    articlesList.innerHTML = markup;
+}
+
+// при кожному новому запиті треба очищати контайнер, щоб виводилось не в кінці попереднього запиту, а зверху і знову
+
+function clearArticlesContainer() {
+    refs.articlesContainer.innerHTML = '';
+}
 
 
 

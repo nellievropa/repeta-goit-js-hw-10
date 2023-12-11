@@ -1,0 +1,34 @@
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
+.button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary {
+  color: white;
+  background-color: darkcyan;
+  border-color: darkcyan;
+}
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: white;
+  background-color: darkcyan;
+  border-color: darkcyan;
+}
+.btn-primary.disabled,
+.btn-primary:disabled {
+  opacity: 0.65;
+}
+.btn {
+  font-weight: 400;
+  text-align: center;
+}
+
+.articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
