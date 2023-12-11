@@ -1,2 +1,0 @@
-.btn:not(:disabled):not(.disabled){cursor:pointer}.button{margin-left:auto;margin-right:auto;display:block}.btn-primary,.btn-primary.disabled,.btn-primary:disabled{color:#fff;background-color:#008b8b;border-color:#008b8b}.btn-primary.disabled,.btn-primary:disabled{opacity:.65}.btn{text-align:center;font-weight:400}.articles{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));display:grid}
-/*# sourceMappingURL=01-fetch-api.5e84c329.css.map */
