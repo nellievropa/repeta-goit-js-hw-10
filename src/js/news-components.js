@@ -21,7 +21,7 @@ this.page = 1;
         //   щоб мати можливість створити зовнішній вигляд статті у зовнішньому коді, нам  потрібно повернути цей fetch у зовнішній код командою return
         return fetch(url, options)
             .then(response => response.json())
-            .then(({articles}) => {
+            .then(({ articles }) => {
                 // console.log(data);
                 // this.page += 1; винесли у зовнішній код
                 this.incrementPage();

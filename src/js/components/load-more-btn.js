@@ -18,23 +18,23 @@ export default class LoadMoreBtn {
 enable() {
     this.refs.button.disabled = false;
     this.refs.label.textContent = 'Показати більше';
-    this.refs.spinner.classList.add('.is-hidden');
+    this.refs.spinner.classList.add('is-hidden');
 
     }
     
     disable() {
-            this.refs.button.disabled = true;
+    this.refs.button.disabled = true;
     this.refs.label.textContent = 'Завантажуємо....';
-    this.refs.spinner.classList.remove('.is-hidden');
+    this.refs.spinner.classList.remove('is-hidden');
     }
 
     show() {
-        this.refs.button.classList.remove('.is-hidden');
+        this.refs.button.classList.remove('is-hidden');
 
     }
 
     hide() {
-        this.refs.button.classList.add('.is-hidden');
+        this.refs.button.classList.add('is-hidden');
 
     }
 }
