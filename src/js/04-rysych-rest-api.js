@@ -8,6 +8,7 @@
 //     .then(r => r.json())
 //     .then(console.log);
 const search = document.querySelector('.js-search');
+const list = document.querySelector('.js-list')
 search.addEventListener('submit', onShowWeather);
 
 function onShowWeather(evt) {
@@ -19,6 +20,17 @@ function onShowWeather(evt) {
     .catch(error => console.log(error));
     console.log(query);
     console.log(days);
+}
+
+
+function createMarkup(array) {
+  
+    // return array.map( => `<li>
+    // <img src="" alt="">
+    //         <p></p>
+    //     <h2></h2>
+    //     <h3></h3>
+    // </li>`).join('')
 }
 
 function getWeather(city, days) {
