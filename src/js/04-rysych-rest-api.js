@@ -39,7 +39,7 @@ function getWeather(city, days) {
     const API_KEY_WEATHER = 'bc046e36b7d642a2a0294826231312';
 // щоб далі можна було парсити цей проміс його треба повернути!!!RETURN
     return fetch(
-        `${BASE_URL}/forecast.json?key=${API_KEY_WEATHER}&q=${city}&days=${days}`
+        `${BASE_URL}/forecast.json?key=${API_KEY_WEATHER}&q=${city}&days=${days}&lang=uk`
     ).then((resp) => {
         // console.log(resp.json())
         if (!resp.ok) {
