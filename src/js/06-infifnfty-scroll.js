@@ -83,9 +83,9 @@ const list = document.querySelector(".js-list");
 // }
 
 
-
+// const target2 = document.querySelector('.js-guard-test')
 const target = document.querySelector('.js-guard');
-let currentPage = 498;
+let currentPage = 1;
 let options = {
   root: null,
   rootMargin: "300px",
@@ -93,7 +93,11 @@ let options = {
 };
 
 let observer = new IntersectionObserver(onLoad, options);
+// щоб слідкувати за другим об'ектом скролу- ми його підключили з іншим ім'ям
+observer.observe(target2);
 function onLoad(entries, observer) {
+    // це щоб подивитися,що спрацювали обидва обзерви
+    console.log(entries);
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             // console.log(entries)
@@ -140,5 +144,5 @@ getTranding()
             observer.observe(target)
     })
     // просто подивитися, що прийшло
-    // .then(data => console.log(data))
+    .then(data => console.log(data))
     .catch(error => console.log(error));

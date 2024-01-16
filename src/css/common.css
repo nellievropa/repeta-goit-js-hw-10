@@ -81,3 +81,7 @@ border-width: .2em;
   border-radius: 50%;
   animation: spinner-border .75s linear infinite;
 }
+
+li {
+  height: 650px;
+}
